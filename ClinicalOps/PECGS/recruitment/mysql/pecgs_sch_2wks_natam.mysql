@@ -1,0 +1,10 @@
+TRUNCATE pecgs_native_coming2cc;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\PECGS\\pecgs_2wks_natam.csv' INTO table pecgs_native_coming2cc
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 3 LINES
+(mrn,pat_name,provider,@AppDtTm,pat_zip,pat_race)
+SET app_dttm = str_to_date(@AppDtTm,'%Y-%m-%d %H:%i:%s')
+;

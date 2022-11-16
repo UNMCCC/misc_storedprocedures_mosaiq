@@ -1,0 +1,12 @@
+TRUNCATE pecgs_next_app_native_american;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\PECGS\\pecgs_natam.csv' INTO table pecgs_next_app_native_american
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n' -- Rick added 
+IGNORE 3 LINES
+(@apdttm,mrn,patname,location,activity,provider,dxcode,dxdesc,gender,race,ethnicity,age,work_phone,work_phone_ext,home_phone,cell_phone,address,city,state,zip,notes,CPT_Code,Hsp_Code,Hsp_Code3,Sch_Set_Id,SchStatus_Hist_SD,@CteDtTm,Create_DtDiff,@EdtDtTm,Edit_DtDiff,actv_class,actv_bucket)
+SET appdttm = str_to_date(@apdttm,'%Y-%m-%d %H:%i:%s'),
+Create_DtTm = str_to_date(@CteDtTm,'%Y-%m-%d %H:%i:%s'),
+Edit_DtTm = str_to_date(@EdtDtTm,'%Y-%m-%d %H:%i:%s')
+;
