@@ -1,0 +1,37 @@
+TRUNCATE table gynonc_volumes;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\Gyn_Onc_Volumes\\gynOncVolumes.csv' INTO table gynonc_volumes
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"' 
+IGNORE 2 LINES 
+(mrn,dob,patname,@adate,is_telemed,provider,activity,status,fy,zip,race,ethnicity,referringMd,referringFac)
+SET apptdate = str_to_date(@adate,'%Y%m%d'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
