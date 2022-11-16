@@ -1,0 +1,36 @@
+TRUNCATE mobumps;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\BumpsCancelsNoShows\\mobumps.csv' INTO table mobumps
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"' 
+IGNORE 2 LINES 
+(pat_name,mrn,activity,provider,@ed,@ad,calculatedays)
+SET editDate = str_to_date(@ed,'%m/%d/%Y'), 
+    apptDate = str_to_date(@ad,'%m/%d/%Y');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+TRUNCATE allmoappts;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\BumpsCancelsNoShows\\allmoapps.csv' INTO table allmoappts
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"' 
+IGNORE 2 LINES 
+(totalmoappts,@ad)
+SET rundate = str_to_date(@ad,'%Y-%m-%d');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
