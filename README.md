@@ -10,3 +10,5 @@ When would it be appropriate:
 - You are knowledgeable on the actual backend structures
 - You can read and interpret this code
 
+In addition to SPs, we are including some standalone SQL queries invoked outside the DB scheduler. 
+These small project are used to meet clinical needs of specialties, operations, patient services and others.
