@@ -1,0 +1,39 @@
+TRUNCATE table sfpats;
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\SantaFePatients\\sfpats2weeksout.csv' INTO table sfpats
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"' 
+IGNORE 3 LINES 
+(mrn,@dob,pat_last,pat_first,@adate,@ladate)
+SET birth_date = str_to_date(@dob,'%Y-%m-%d'),
+    app_dttm = str_to_date(@adate,'%Y-%m-%d %H:%i:%s'),
+	lastapp_dt = str_to_date(@ladate,'%Y-%m-%d'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
