@@ -1,0 +1,36 @@
+LOAD DATA local infile 'D:\\Tableau\\Sources\\ClinicalOps\\InfusionSuite\\infusions7DaysOut.csv' INTO table infusion_mngmnt
+CHARACTER SET latin1
+FIELDS TERMINATED BY ','  
+OPTIONALLY ENCLOSED BY '"' 
+IGNORE 3 LINES 
+(@ad,pat_name,MRN,Location,activity)
+SET appt_dttm = str_to_date(@ad,'%Y-%m-%d %H:%i:%s'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
