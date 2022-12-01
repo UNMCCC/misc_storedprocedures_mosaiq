@@ -150,8 +150,7 @@ select #newlyDiagnosed.patient_name,
 group by pat_id1
 having count(*) = 1
 
---select statement to see how many visits the patients selected above actually had with UNMCCC
-select * from MosaiqAdmin.dbo.visits_in_buckets vib where pat_id1 in (select pat_id1 from #gc) 
+Select * from MosaiqAdmin.dbo.visits_in_buckets vib where pat_id1 in (select pat_id1 from #gc) 
 order by patient_name,appt_dt
 
 --drop table #breastCancerPatients
@@ -161,15 +160,12 @@ from #np
 UNION
 select * 
 from #newlyDiagnosed
-where pat_id1 not in(85955,81676,85285,84441,86544,83931,77214,86364,83411) --list the patients in #gc that only had one appointment; run the select statment
-                                                                            --below where the #gc table is created to determine which pat_id1's to include in
-																			--this list. Not all should always be included.
+where pat_id1 not in(85955,81676,85285,84441,86544,83931,77214,86364,83411)
 
 --select * from #breastCancerPatients order by patient_name
 
-if object_id('tempdb..#dataset') is not null
-    drop table #dataset
---get distinct data set from Mosaiq with most recent metadata from list of patients
+-- drop table #Dataset
+/****************** Get distinct data set from Mosaiq with most recent metadata from list of patients ***********/
 select distinct 
 	patient_name, 
 	Addr1, 
@@ -187,7 +183,7 @@ select distinct
 	np_ind,
 	pat_id1,
 	getDate() as Extract_Date
-into #dataset
+into #Dataset
 from 
 (	
 	select 
@@ -227,14 +223,7 @@ from
 	left join  MOSAIQ.dbo.Prompt pro	on adm.Language_Spoken_Pro_ID = Pro.Pro_id
 ) as A
 where  A.IsInmate = 'NO' and A.IsDeceased = 'NO' and A.IsHomeless = 'NO'
-
 -- select * from #Dataset
-
---get final list of patients who are either new to UNMCCC or newly diagnosed
---this is the deliverable
-select * 
-from #dataset
-order by patient_name
 
 END
 GO
